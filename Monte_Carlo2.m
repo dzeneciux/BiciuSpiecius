@@ -5,7 +5,8 @@ a = -10;
 b = 10;
 n=2;%Dimensija (matavimas)
 k=100;%Tasku (vektoriu) skaicius
-x = a + (b-a) .* rand(k,n) %Perdaryti, kad generuotu dvimacius vektorius
+x = a + (b-a) .* rand(k,n);%Perdaryti, kad generuotu dvimacius vektorius
+f=[];
 for i=1:k
 f(i)=sincos2(x(i,:));
 end
