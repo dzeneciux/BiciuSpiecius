@@ -37,10 +37,30 @@ b2=xMin1(1)+4;
 a3=xMin1(2)-4;
 b3=xMin1(2)+4;
 
+if (a2<-10)
+    a2=-10;
+    b2=-2;
+end
+    if (b2>10)
+        b2=10;
+        a2=2;
+    end
+        if (a3<-10)
+            a3=-10;
+            b3=-2;
+        end
+            if (b3>10)
+                b3=10;
+                a3=2;
+            end;
+
 %n=2;%dimensija(matavimas)
 k2=50;%likusiu tasku (vektoriu skaicius)
 x2(:,1)=a2+(b2-a2).*rand(k2,1);
 x2(:,2)=a3+(b3-a3).*rand(k2,1);
+
+
+
 f2=[];
 for i=1:k2
     f2(i)=sincos2(x2(i,:));
@@ -56,13 +76,18 @@ fprintf('Surastas min2=%6.4f, taske x2=(%6.4f, %6.4f)\n',fMin2,xMin2(1),xMin2(2)
 %fprintf('Surastas max2=%6.4f, taske x2=(%6.4f, %6.4f)\n',fMax,xMax(1),xMax(2));
 %grafikas2
 
+
 scatter(x2(:,1),x2(:,2),'g.');
 scatter(xMin2(1),xMin2(2),'r*');
 text(xMin2(1)+0.3,xMin2(2),num2str(fMin2));
 rectangle('Position',[xMin1(1)-4,xMin1(2)-4,8.0,8.0],...
     'Linewidth',5,'Linestyle','--')
+           
 
-if ((xMin(1)-4)>-10)&((xMin(1)+4)>10)&((xMin(2)-4)>10)&((xMin(2)+4)>1)
+
+    
+
+
 
 
 
