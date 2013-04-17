@@ -80,7 +80,7 @@ fprintf('Surastas min2=%6.4f, taske x2=(%6.4f, %6.4f)\n',fMin2,xMin2(1),xMin2(2)
 scatter(x2(:,1),x2(:,2),'g.');
 scatter(xMin2(1),xMin2(2),'r*');
 text(xMin2(1)+0.3,xMin2(2),num2str(fMin2));
-rectangle('Position',[xMin1(1)-4,xMin1(2)-4,8.0,8.0],...
+rectangle('Position',[a2,a3,8.0,8.0],...
     'Linewidth',5,'Linestyle','--')
            
 
