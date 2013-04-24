@@ -9,8 +9,11 @@ for ii=1:100
 %PALEIDIMAS: Pvz.:
 %a1=-10; b1=10; funkcija=@sincos2;
 %[fMin2,xMin2] = Monte_Carlo2_adaptyvus(funkcija,a1,b1)
+% a1=-10; b1=10; funkcija=@sincos2;
+%[visos,vid] = Monte_Carlo2_adaptyvus(funkcija,a1,b1)
+%[visos,vid]
 n=2;%Dimensija (matavimas)
-k1=80;%Tasku (vektoriu) skaicius, generuojame 50 tasku
+k1=40;%Tasku (vektoriu) skaicius, generuojame 50 tasku
 %Intervalas bus skaidomas i k1=50 ir k2=50
 %intervalas bus mazinamas
 x1 = a1 + (b1-a1) .* rand(k1,n); %Perdaryti, kad generuotu dvimacius vektorius
@@ -61,7 +64,7 @@ end
             end;
 
 %n=2;%dimensija(matavimas)
-k2=20;%likusiu tasku (vektoriu skaicius)
+k2=60;%likusiu tasku (vektoriu skaicius)
 x2(:,1)=a2+(b2-a2).*rand(k2,1);
 x2(:,2)=a3+(b3-a3).*rand(k2,1);
 
