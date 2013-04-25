@@ -1,5 +1,6 @@
 function [fMin, xMin] = BiciuSpiecius(funkcija,a,b)
 % Realizacija pagrysta Monte Carlo2 adaptyvus failu
+% Paleidimas: [f_Min, x_Min] = BiciuSpiecius(@shub,-10,10)
 n=2;%Dimensija (matavimas)
 k=55;%Tasku (vektoriu) skaicius, generuojame 50 tasku
 x = a + (b-a) .* rand(k,n); %Perdaryti, kad generuotu dvimacius vektorius
@@ -18,7 +19,7 @@ x_sort_10 = x_sort(1:10,:); % Isrenka 10 is surusiuotu
 fMin =  f_sort(1);
 xMin = x_sort(1,:);
 
-% Nubraizome 
+% Nubraizome ka gavome po 55 bandymu
 hold on;
 scatter(x(:,1),x(:,2),'b.');
 scatter(x_sort_10(:,1),x_sort_10(:,2),'r*');
@@ -28,6 +29,14 @@ end
 %text(xMin(1)+0.3,xMin(2),num2str(fMin));
 rectangle('Position',[a,a,b-a,b-a],...
     'Linewidth',5,'Linestyle','--')
+
+% Nauju tasku gavimas vidurkio principu
+% Mazas pvz., "suleisiu" 1 taska su 2
+x_naujas = (x_sort_10(1,:) + x_sort_10(2,:))/2;
+f_naujas = funkcija(x_naujas(1,:))
+% Nubreziu nauja taska
+scatter(x_naujas(1,1),x_naujas(1,2),'g*');
+text(x_naujas(1,1)+0.3,x_naujas(1,2),num2str(f_naujas));
 
 
     
