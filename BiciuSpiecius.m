@@ -10,10 +10,10 @@ for i=1:k
 end
 %Surusiuosiu visas k reiksmes ir isrinksiu 10 maziausiu pagal funkcijos
 %reiksmes
-[f_sort, f_sort_ind] = sort(f); % Surusiuoja visas 60 reiksm.
-x_sort = x(f_sort_ind,:);
-f_sort_10 = f_sort(1:10); % Isrenka 10 is surusiuotu
-x_sort_10 = x_sort(1:10,:); % Isrenka 10 is surusiuotu
+[f_sort, f_sort_ind] = sort(f) % Surusiuoja visas 60 reiksm.
+x_sort = x(f_sort_ind,:)
+f_sort_10 = f_sort(1:10) % Isrenka 10 is surusiuotu
+x_sort_10 = x_sort(1:10,:) % Isrenka 10 is surusiuotu
 
 % Surasta kol kas geriausia reiksmes ir taskas
 fMin =  f_sort(1);
@@ -24,7 +24,7 @@ hold on;
 scatter(x(:,1),x(:,2),'b.');
 scatter(x_sort_10(:,1),x_sort_10(:,2),'r*');
 for i=1:10
-    text(x_sort_10(i,1)+0.3,x_sort_10(i,2),num2str(i));
+text(x_sort_10(i,1)+0.3,x_sort_10(i,2),num2str(i));
 end
 %text(xMin(1)+0.3,xMin(2),num2str(fMin));
 rectangle('Position',[a,a,b-a,b-a],...
@@ -32,8 +32,20 @@ rectangle('Position',[a,a,b-a,b-a],...
 
 % Nauju tasku gavimas vidurkio principu
 % Mazas pvz., "suleisiu" 1 taska su 2
-x_naujas = (x_sort_10(1,:) + x_sort_10(2,:))/2;
+
+for j=1:9
+    for ii=(j+1):10
+       
+        
+x_naujas = (x_sort_10(j,:) + x_sort_10(ii,:))/2;
 f_naujas = funkcija(x_naujas(1,:))
+
+if (f_naujas < fMin)   
+scatter(x_naujas(1,1),x_naujas(1,2),'y*');
+text(x_naujas(1,1)+0.3,x_naujas(1,2),num2str(ii))
+end
+    end
+end
 % Nubreziu nauja taska
 scatter(x_naujas(1,1),x_naujas(1,2),'g*');
 text(x_naujas(1,1)+0.3,x_naujas(1,2),num2str(f_naujas));
