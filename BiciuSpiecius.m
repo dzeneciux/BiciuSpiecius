@@ -33,16 +33,20 @@ rectangle('Position',[a,a,b-a,b-a],...
 % Nauju tasku gavimas vidurkio principu
 % Mazas pvz., "suleisiu" 1 taska su 2
 
+m=0;
 for j=1:9
     for ii=(j+1):10
-       
+       m=m+1;
         
 x_naujas = (x_sort_10(j,:) + x_sort_10(ii,:))/2;
 f_naujas = funkcija(x_naujas(1,:))
 
-if (f_naujas < fMin)   
+if (f_naujas < fMin)  
+    fMin = f_naujas;
+end
 scatter(x_naujas(1,1),x_naujas(1,2),'y*');
-text(x_naujas(1,1)+0.3,x_naujas(1,2),num2str(ii))
+if mod(m,5)==1
+text(x_naujas(1,1)+0.3,x_naujas(1,2),num2str(m))
 end
     end
 end
